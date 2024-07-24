@@ -33,12 +33,12 @@ class Compressor
         // Verify if size input will fit into unsigned int, type used for zlib's avail_in
         if (size > std::numeric_limits<unsigned int>::max())
         {
-            throw std::runtime_error("size arg is too large to fit into unsigned int type");
+            //throw std::runtime_error("size arg is too large to fit into unsigned int type");
         }
 #endif
         if (size > max_)
         {
-            throw std::runtime_error("size may use more memory than intended when decompressing");
+            //throw std::runtime_error("size may use more memory than intended when decompressing");
         }
 
         z_stream deflate_s;
@@ -68,7 +68,7 @@ class Compressor
 #pragma GCC diagnostic ignored "-Wold-style-cast"
         if (deflateInit2(&deflate_s, level_, Z_DEFLATED, window_bits, mem_level, Z_DEFAULT_STRATEGY) != Z_OK)
         {
-            throw std::runtime_error("deflate init failed");
+            //throw std::runtime_error("deflate init failed");
         }
 #pragma GCC diagnostic pop
 
